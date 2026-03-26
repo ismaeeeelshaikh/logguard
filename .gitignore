@@ -22,6 +22,27 @@ dist/
 
 # IDE/editor
 .idea/
+.vscode/
 
 # OS metadata
 *:Zone.Identifier
+
+# Saved ML models & artifacts (large binary files)
+ml/models/saved/
+*.joblib
+*.keras
+*.h5
+*.pkl
+
+# Flink JARs (downloaded dependencies)
+flink_jobs/jars/
+
+# Data files (generated, not source code)
+ml/data/*.parquet
+ml/data/*.npy
+*.parquet
+*.npy
+
+# Docker volumes and temp
+*.log
+/tmp/

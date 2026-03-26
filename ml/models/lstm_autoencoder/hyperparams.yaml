@@ -1,0 +1,9 @@
+lstm_autoencoder:
+  encoding_dim: 32
+  lstm_units: [128, 64]
+  dropout_rate: 0.2
+  epochs: 100
+  batch_size: 64
+  patience: 10          # Early stopping patience
+  learning_rate: 0.001
+  sequence_length: 30   # 30 windows = 30 minutes of history per host

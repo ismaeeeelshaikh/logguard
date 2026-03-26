@@ -1,0 +1,6 @@
+isolation_forest:
+  n_estimators: 200          # More trees = better accuracy, slower training
+  contamination: 0.01        # Expected anomaly rate in training data
+  max_samples: "auto"        # 256 samples per tree by default
+  max_features: 1.0          # Use all features per tree
+  bootstrap: false           # Sampling without replacement
