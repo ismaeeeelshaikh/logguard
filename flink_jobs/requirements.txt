@@ -1,0 +1,9 @@
+apache-flink==1.18.0
+apache-flink-libraries==1.18.0
+drain3==0.9.11
+numpy==1.24.0
+kafka-python==2.0.2
+confluent-kafka==2.3.0
+avro-python3==1.10.2
+pytest==7.4.3
+pytest-cov==4.1.0

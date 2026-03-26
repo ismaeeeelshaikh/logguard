@@ -1,0 +1,16 @@
+{
+  "type": "record",
+  "name": "RawLog",
+  "namespace": "com.logguard",
+  "fields": [
+    {"name": "log_id", "type": "string"},
+    {"name": "timestamp", "type": "long", "logicalType": "timestamp-millis"},
+    {"name": "host", "type": "string"},
+    {"name": "source", "type": "string"},
+    {"name": "severity", "type": {"type": "enum", "name": "Severity", "symbols": ["DEBUG","INFO","WARN","ERROR","FATAL"]}},
+    {"name": "raw_message", "type": "string"},
+    {"name": "service_name", "type": ["null", "string"], "default": null},
+    {"name": "container_id", "type": ["null", "string"], "default": null},
+    {"name": "tenant_id", "type": "string"}
+  ]
+}

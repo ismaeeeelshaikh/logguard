@@ -1,0 +1,21 @@
+{
+  "type": "record",
+  "name": "ProcessedFeatures",
+  "namespace": "com.logguard",
+  "fields": [
+    {"name": "feature_id", "type": "string"},
+    {"name": "window_start", "type": "long", "logicalType": "timestamp-millis"},
+    {"name": "window_end", "type": "long", "logicalType": "timestamp-millis"},
+    {"name": "host", "type": "string"},
+    {"name": "tenant_id", "type": "string"},
+    {"name": "log_volume", "type": "int"},
+    {"name": "error_rate", "type": "float"},
+    {"name": "warn_rate", "type": "float"},
+    {"name": "unique_template_count", "type": "int"},
+    {"name": "template_entropy", "type": "float"},
+    {"name": "avg_response_time_ms", "type": ["null", "float"], "default": null},
+    {"name": "p95_response_time_ms", "type": ["null", "float"], "default": null},
+    {"name": "template_vector", "type": {"type": "array", "items": "float"}},
+    {"name": "sequence_window_id", "type": "int"}
+  ]
+}

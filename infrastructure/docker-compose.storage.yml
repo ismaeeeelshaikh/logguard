@@ -1,0 +1,25 @@
+services:
+  timescaledb:
+    image: timescale/timescaledb:latest-pg14
+    container_name: logguard-timescaledb
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: logguard
+      POSTGRES_PASSWORD: logguard
+      POSTGRES_DB: logguard
+    volumes:
+      - timescaledb_data:/var/lib/postgresql/data
+
+  redis:
+    image: redis:7-alpine
+    container_name: logguard-redis
+    ports:
+      - "6379:6379"
+    command: ["redis-server", "--appendonly", "yes"]
+    volumes:
+      - redis_data:/data
+
+volumes:
+  timescaledb_data:
+  redis_data:
