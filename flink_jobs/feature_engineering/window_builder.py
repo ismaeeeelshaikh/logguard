@@ -19,7 +19,8 @@ class HostWindowAggregator(WindowFunction):
     Window: 60-second tumbling + 300-second sliding
     """
     
-    def apply(self, key: str, window, inputs, out):
+    def apply(self, key: tuple, window, inputs):
+        out = []
         events = list(inputs)
         
         if not events:
@@ -58,10 +59,10 @@ class HostWindowAggregator(WindowFunction):
         
         # ── Assemble final feature record ────────────────────
         feature_record = {
-            "feature_id": f"{key}_{window.start}",
+            "feature_id": f"{key[0] if isinstance(key, tuple) else key}_{window.start}",
             "window_start": window.start,
             "window_end": window.end,
-            "host": key,
+            "host": key[0] if isinstance(key, tuple) else key,
             "tenant_id": events[0].tenant_id,
             "log_volume": total_logs,
             "error_rate": error_rate,
@@ -74,4 +75,4 @@ class HostWindowAggregator(WindowFunction):
             "sequence_window_id": 0  # ML team will use this for LSTM sequencing
         }
         
-        out.collect(feature_record)
+        return [feature_record] # out.collect(feature_record)
